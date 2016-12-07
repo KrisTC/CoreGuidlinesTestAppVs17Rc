@@ -8,8 +8,8 @@
 int main()
 {
     // Super simple bad code :)
-    int *p = new int[4];
-    std::fill(p, p + 4, 0);
+    int* const p = new int[4]; 
+    std::fill(p, p + 4, 0);     
     return *p; 
 }
 

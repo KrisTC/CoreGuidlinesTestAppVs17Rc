@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <algorithm>
 #include <gsl/gsl>
+#include "MyArray.h"
 
 int main()
 {

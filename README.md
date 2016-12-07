@@ -1,0 +1,1 @@
+# CoreGuidlinesTestAppVs17Rc

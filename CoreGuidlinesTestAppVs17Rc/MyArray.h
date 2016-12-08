@@ -7,10 +7,11 @@ public:
     //#pragma warning (push)
     //#pragma warning (disable : 26421)
     MyArray() : m_data(new int[4]) {
-        m_data[0] = 29;
-        m_data[1] = 2;
-        m_data[2] = 3;
-        m_data[3] = 86;
+        gsl::span<int> d(m_data, 4);
+        d[0] = 29;
+        d[1] = 2;
+        d[2] = 3;
+        d[3] = 86;
     }
     //#pragma warning (pop)
 
@@ -19,7 +20,8 @@ public:
     }
 
     operator gsl::span<int>() {
-        return gsl::span<int>(m_data, 4);
+        gsl::span<int> d(m_data, 4);
+        return d;
     }
 
 private:

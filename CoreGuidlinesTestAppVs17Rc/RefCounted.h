@@ -1,5 +1,6 @@
 #pragma once
 #include <gsl/gsl>
+#include <atomic>
 
 // This is an massivly simplified version of our IUknown implemantation
 class RefCounted
@@ -10,7 +11,7 @@ public:
     void AddRef();
     void Release();
 private:
-    size_t m_ref_count;
+    std::atomic<size_t> m_ref_count;
 };
 
 // This is a massive simplification of our smart pointer for creating and owning our 

@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <gsl/gsl>
 #include <windows.h>
-#include <atlbase.h>
+//#include <atlbase.h>
 #include <comutil.h>
 
 #include "MyArray.h"
@@ -15,7 +15,7 @@
 
 inline auto StringFunctionTest(const gsl::cwstring_span<>& s) {
     return s.length();
-}
+} 
 
 void StringFunctionTests() {
     StringFunctionTest(L"Hello GSL");
@@ -23,9 +23,9 @@ void StringFunctionTests() {
     auto s = ::SysAllocString(L"Hello GSL");
     StringFunctionTest(gsl::ensure_z(s));
 
-    CComBSTR bstr; 
-    bstr.Attach(s);
-    StringFunctionTest(gsl::ensure_z(bstr.operator LPWSTR())); // Can't just assign this :(
+    //CComBSTR bstr; 
+    //bstr.Attach(s);
+    //StringFunctionTest(gsl::ensure_z(bstr.operator LPWSTR())); // Can't just assign this :(
 
     _bstr_t bstrt {L"Hello GSL"};
     StringFunctionTest(gsl::ensure_z(bstrt.GetBSTR())); // Can't just assign this :(
